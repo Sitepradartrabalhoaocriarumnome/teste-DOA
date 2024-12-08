@@ -19,10 +19,10 @@ app.add_middleware(
 )
 
 # Incluindo as rotas
-app.include_router(doadores.router, tags=["Doadores"], prefix="/api/doadores")
-app.include_router(recebedores.router, tags=["Recebedores"], prefix="/api/recebedores")
-app.include_router(doacoes.router, tags=["Doações"], prefix="/api/doacoes")
+app.include_router(doadores.router, tags=["Doadores"], prefix="/app/doadores")
+app.include_router(recebedores.router, tags=["Recebedores"], prefix="/app/recebedores")
+app.include_router(doacoes.router, tags=["Doações"], prefix="/app/doacoes")
 
-@app.get("/api/healthchecker")
+@app.get("/app/healthchecker")
 def root():
     return {"message": "API funcionando com sucesso!"}
