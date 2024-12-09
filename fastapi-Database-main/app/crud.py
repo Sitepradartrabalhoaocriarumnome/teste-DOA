@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+import models, schemas
 
 def get_doador(db: Session, doador_id: int):
     return db.query(models.Doador).filter(models.Doador.id == doador_id).first()

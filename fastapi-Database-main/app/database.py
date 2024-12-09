@@ -6,12 +6,10 @@ import os
 
 load_dotenv()
 
-DATABASE_URL = (
-    f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}"
-    f"@{os.getenv('POSTGRES_HOSTNAME')}:{os.getenv('DATABASE_PORT')}/{os.getenv('POSTGRES_DB')}"
-)
+POSTGRESQL_DATABASE_URL = "postgresql://postgres:sua_senha@127.0.0.1:5432/doacoes"
 
-engine = create_engine(DATABASE_URL)
+
+engine = create_engine(POSTGRESQL_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()

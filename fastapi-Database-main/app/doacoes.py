@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from .. import crud, schemas
-from ..database import get_db
+import crud, schemas
+from database import get_db
 
 router = APIRouter()
 
-@router.post("/", response_model=schemas.Doacao)
+@router.post("/adicionar", response_model=schemas.Doacao)
 def realizar_doacao(doacao: schemas.DoacaoBase, db: Session = Depends(get_db)):
     doador = crud.get_doador(db, doacao.doador_id)
     recebedor = crud.get_recebedor(db, doacao.recebedor_id)
